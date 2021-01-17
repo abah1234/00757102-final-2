@@ -9,15 +9,17 @@
 import SwiftUI
 
 struct AppView: View {
+    @ObservedObject var charactersData = CharactersData()
     var body: some View {
         TabView{
             ChooseCity().tabItem{
                 Image(systemName: "flag.fill")
                 Text("咖啡廳")
             }
-            Color.blue
+            CharacterList(charactersData: self.charactersData)
                 .tabItem{
-                Text("123")
+                    Image(systemName: "person.circle")
+                    Text("列表")
             }
         }
         .accentColor(.purple)
